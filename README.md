@@ -1,1 +1,3 @@
 # Nonlinear-Pendulum-Neuro-Fuzzy-control
+Utilização de Lógica Nebulosa para projetar um acionamento que linearize um pêndulo, i.é, o pêndulo deve apresentar uma resposta dinâmica ao degrau em regime permanenteque "independa"do ponto de operação. 
+Isto será feito de duas formas, formulando regras empíricas que compensem a força da gravidade e numa segunda parte, treinando um sistema ANFIS que aprende a linearização exata do processo.

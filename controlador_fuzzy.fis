@@ -1,0 +1,47 @@
+[System]
+Name='controlador_fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='referencia'
+Range=[-10 10]
+NumMFs=3
+MF1='direita':'gaussmf',[5.095 -10]
+MF2='meio':'gaussmf',[0.2547 0]
+MF3='esquerda':'gaussmf',[5.095 10]
+
+[Input2]
+Name='pos-atual'
+Range=[-10 10]
+NumMFs=3
+MF1='direita':'gaussmf',[5.095 -10]
+MF2='meio':'gaussmf',[1.018 0]
+MF3='esquerda':'gaussmf',[5.095 10]
+
+[Output1]
+Name='correcao'
+Range=[-70 70]
+NumMFs=3
+MF1='esquerda':'gaussmf',[35 -70]
+MF2='nao-atua':'gaussmf',[11.66 0]
+MF3='direita':'gaussmf',[35 69.63]
+
+[Rules]
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+1 1, 2 (1) : 1
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 1 (1) : 1
+3 3, 2 (1) : 1
+3 2, 3 (1) : 1
+3 1, 3 (1) : 1
